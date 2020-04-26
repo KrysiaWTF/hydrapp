@@ -1,9 +1,9 @@
 @import "_normalize";
 @import "_variables";
 
-@keyframes waterAdd{
+@keyframes waterAdd {
   0% {
-    fill: $water ;
+    fill: $water;
     transform: scaleY(1);
   }
   50% {
@@ -16,9 +16,9 @@
   }
 }
 
-@keyframes waterSub{
+@keyframes waterSub {
   0% {
-    fill: $water ;
+    fill: $water;
     transform: scaleY(1);
   }
   50% {
@@ -62,11 +62,17 @@ body {
   }
   &__sub {
     margin: 16px;
+    padding: 8px;
     min-width: 184px;
     min-height: 23px;
     color: #f5e5e7;
     background: $blue;
     font-size: 14px;
+    min-width: 216px;
+    border-radius: 4px;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
   }
 }
 
@@ -103,7 +109,7 @@ body {
     width: 50vh;
   }
 
-  &__water{
+  &__water {
     &--add {
       animation: waterAdd 0.5s 1 ease-in-out;
     }
