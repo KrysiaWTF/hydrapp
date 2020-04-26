@@ -62,12 +62,41 @@ body {
     grid-column: 1;
     grid-row: 1;
     margin: 20vh 24px;
-    z-index: 99;
+    z-index: 2;
   }
   &__img {
     grid-column: 1;
     grid-row: 1;
     min-height: 40vh;
     width: 50vh;
+  }
+}
+
+.message {
+  display: none;
+  &--js {
+    display: inline;
+    position: absolute;
+    padding: 16px;
+    background-color: $white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 60vw;
+    z-index: 99;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  &__button {
+    min-width: 48px;
+    min-height: 16px;
+    background-color: $white;
+    border-radius: 8px;
+    transition: transform 3s linear;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__heading {
+    color: rgb(94, 92, 92);
   }
 }
