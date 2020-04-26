@@ -5,11 +5,11 @@ const moment = require("moment");
 // service worker registration - remove if you're not going to use it
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('serviceworker.js').then(function(registration) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('serviceworker.js').then(function (registration) {
       // Registration was successful
       console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
+    }, function (err) {
       // registration failed :(
       console.log('ServiceWorker registration failed: ', err);
     });
@@ -42,25 +42,53 @@ const sub = document.querySelector('.buttons__sub--js');
 const msg = document.getElementById('msg');
 
 
-addG.addEventListener ('click', () => {
+//Add glass
+addG.addEventListener('click', () => {
+  let storedGlasses = localStorage.getItem(dateS);
   glasses = parseInt(storedGlasses);
-
+  console.log(glasses)
   if (glasses < 20) {
     glasses++;
     localStorage.setItem(dateS, glasses);
     count.innerHTML = glasses;
+    water.classList.add('glass__water--add')
   } else {
-    msg.classList.add ('message--js');
-}
+    msg.classList.add('message--js');
+  }
+  setTimeout( () =>{
+    water.classList.remove('glass__water--add');
+  }, 600
+  );
 });
 
 // close the message if displayed
 const msgOK = document.querySelector('.message__button--js');
 
-console.log (msgOK);
-
-msgOK.addEventListener ('click', () => {
-  msg.classList.remove ('message--js');
+msgOK.addEventListener('click', () => {
+  msg.classList.remove('message--js');
 });
+
+//Subtract glass
+
+const water = document.querySelector('.glass__water--js');
+
+sub.addEventListener('click', () => {
+  let storedGlasses = localStorage.getItem(dateS);
+  glasses = parseInt(storedGlasses);
+  console.log(glasses)
+  if (glasses >= 1) {
+    glasses--;
+    localStorage.setItem(dateS, glasses);
+    count.innerHTML = glasses;
+    water.classList.add('glass__water--sub')
+  } else {
+    water.classList.add('glass__water--sub');
+  }
+
+  setTimeout( () =>{
+    water.classList.remove('glass__water--sub');
+  }, 600
+  );
+})
 
 
